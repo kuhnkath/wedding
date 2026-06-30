@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="M&K Wedding">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#7a8c6e">
+    <title>Majed & Katharina — 05.09.2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@300;400;500&family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Language Selector -->
+    <div class="lang-selector" role="navigation" aria-label="Language selection">
+        <button class="lang-btn active" data-lang="en" aria-label="English">EN</button>
+        <button class="lang-btn" data-lang="de" aria-label="Deutsch">DE</button>
+        <button class="lang-btn" data-lang="ro" aria-label="Română">RO</button>
+        <button class="lang-btn" data-lang="ar" aria-label="العربية">ع</button>
+    </div>
+
+    <!-- Toggle: Family / Friends -->
+    <div class="guest-toggle" role="tablist" aria-label="Guest type selection">
+        <button id="toggle-family" class="toggle-btn" role="tab" aria-selected="false" onclick="setGuestType('family')">
+            <span data-i18n="toggle.family">Family</span>
+        </button>
+        <button id="toggle-friends" class="toggle-btn active" role="tab" aria-selected="true" onclick="setGuestType('friends')">
+            <span data-i18n="toggle.friends">Friends</span>
+        </button>
+    </div>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <p class="hero-script">Save the Date</p>
+            <div class="olive-branch" aria-hidden="true">
+                <svg viewBox="0 0 80 160" width="80" height="160">
+                    <path d="M40 10 C40 10, 38 40, 40 80 C42 120, 40 150, 40 155" stroke="#7a8c6e" stroke-width="1.5" fill="none"/>
+                    <ellipse cx="30" cy="35" rx="8" ry="12" fill="none" stroke="#7a8c6e" stroke-width="1" transform="rotate(-20 30 35)"/>
+                    <ellipse cx="50" cy="50" rx="8" ry="12" fill="none" stroke="#7a8c6e" stroke-width="1" transform="rotate(20 50 50)"/>
+                    <ellipse cx="32" cy="70" rx="7" ry="11" fill="none" stroke="#7a8c6e" stroke-width="1" transform="rotate(-15 32 70)"/>
+                    <ellipse cx="48" cy="90" rx="7" ry="11" fill="none" stroke="#7a8c6e" stroke-width="1" transform="rotate(15 48 90)"/>
+                    <ellipse cx="35" cy="110" rx="6" ry="10" fill="none" stroke="#7a8c6e" stroke-width="1" transform="rotate(-10 35 110)"/>
+                    <circle cx="34" cy="42" r="4" fill="#7a8c6e" opacity="0.6"/>
+                    <circle cx="46" cy="58" r="4" fill="#7a8c6e" opacity="0.6"/>
+                    <circle cx="36" cy="78" r="3.5" fill="#7a8c6e" opacity="0.6"/>
+                    <circle cx="44" cy="95" r="3.5" fill="#7a8c6e" opacity="0.5"/>
+                </svg>
+            </div>
+            <h1 class="couple-names">Majed <span>&</span> Katharina</h1>
+            <div class="divider"></div>
+            <p class="wedding-date">05 . 09 . 2026</p>
+            <p class="wedding-location">Stockholm</p>
+
+            <!-- Countdown -->
+            <div class="countdown" id="countdown">
+                <div class="countdown-item">
+                    <span class="countdown-number" id="countdown-days">0</span>
+                    <span class="countdown-label" data-i18n="countdown.days">days</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="countdown-hours">0</span>
+                    <span class="countdown-label" data-i18n="countdown.hours">hours</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="countdown-minutes">0</span>
+                    <span class="countdown-label" data-i18n="countdown.minutes">min</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="countdown-seconds">0</span>
+                    <span class="countdown-label" data-i18n="countdown.seconds">sec</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Program Section -->
+    <section class="section program" id="program">
+        <h2 class="section-title" data-i18n="program.title">The Day</h2>
+        <div class="ornament" aria-hidden="true"></div>
+
+        <!-- Family-only: Ceremony -->
+        <div class="timeline family-only">
+            <div class="timeline-item">
+                <div class="timeline-time">12:15</div>
+                <div class="timeline-content">
+                    <h3 data-i18n="program.familyGathering">Family Meeting</h3>
+                    <p data-i18n="program.familyGatheringDesc">Meet at Stadshuset. Time to gather before the appointment.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-time">12:30</div>
+                <div class="timeline-content">
+                    <h3 data-i18n="program.ceremony">Stadshuset Appointment</h3>
+                    <p data-i18n="program.ceremonyDesc">Our ceremony at Stockholms stadshus.</p>
+                    <p class="note" data-i18n="program.ceremonyNote">🕊️ We can only take 7 guests with us into the ceremony — but it's only about 15 minutes, and we look forward to greeting everyone right before and after!</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-time">13:00</div>
+                <div class="timeline-content">
+                    <h3 data-i18n="program.couplePhotos">Couple Pictures</h3>
+                    <p data-i18n="program.couplePhotosDesc">Time for portraits of the newlyweds.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-time">13:30</div>
+                <div class="timeline-content">
+                    <h3 data-i18n="program.familyPhotos">Family Pictures</h3>
+                    <p data-i18n="program.familyPhotosDesc">Dedicated time for family portraits by the waterfront.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Everyone -->
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-time">14:00</div>
+                <div class="timeline-content">
+                    <h3 data-i18n="program.gathering">Gathering at the Waterfront</h3>
+                    <p>Norrmälarstrand 1 / Ragnar Östbergsplan</p>
+                    <p class="note" data-i18n="program.gatheringNote">⏰ The boat leaves at 14:30 — please arrive on time!</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-time">14:30</div>
+                <div class="timeline-content">
+                    <h3 data-i18n="program.boat">Boat Ride</h3>
+                    <p data-i18n="program.boatDesc">A scenic ride on Lake Mälaren. Mingle, take in the views, and enjoy the company.</p>
+                    <div class="boat-icon" aria-hidden="true">
+                        <svg viewBox="0 0 80 45" width="80" height="45">
+                            <!-- Dashed route line -->
+                            <path d="M0 38 Q20 33, 40 36 Q60 39, 80 34" stroke="#7a8c6e" stroke-width="1" fill="none" stroke-dasharray="3,3" opacity="0.6"/>
+                            <!-- Hull -->
+                            <path d="M10 32 Q15 38, 40 38 Q65 38, 70 32 L65 32 Q60 36, 40 36 Q20 36, 15 32 Z" fill="#7a8c6e" opacity="0.3"/>
+                            <path d="M10 32 L15 32 Q20 36, 40 36 Q60 36, 65 32 L70 32" stroke="#7a8c6e" stroke-width="1.5" fill="none"/>
+                            <!-- Mast -->
+                            <line x1="40" y1="8" x2="40" y2="32" stroke="#7a8c6e" stroke-width="1.2"/>
+                            <!-- Sail -->
+                            <path d="M40 8 Q55 16, 40 28" stroke="#7a8c6e" stroke-width="1" fill="rgba(122, 140, 110, 0.1)"/>
+                            <!-- Flag -->
+                            <path d="M40 8 L46 11 L40 14" fill="#7a8c6e" opacity="0.6"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-time">17:00</div>
+                <div class="timeline-content">
+                    <h3 data-i18n="program.dinner">Dinner & Celebration</h3>
+                    <p>Beirut Bistro — Hornsberg Strand 85</p>
+                    <p data-i18n="program.dinnerDesc">Lebanese cuisine — mezze, grill, and something for everyone. An evening of good food, love, and laughter.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-time" data-i18n="program.lateTime">~23:00</div>
+                <div class="timeline-content">
+                    <h3 data-i18n="program.dancing">End of Celebrations</h3>
+                    <p data-i18n="program.dancingDesc">A beautiful night comes to a close. Thank you for being part of our day. 🤍</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Locations Section -->
+    <section class="section locations" id="locations">
+        <h2 class="section-title" data-i18n="locations.title">Locations</h2>
+        <div class="ornament" aria-hidden="true"></div>
+
+        <!-- Stylized Map — Family version (2 meeting points) -->
+        <div class="map-container family-only">
+            <h3 class="map-heading" data-i18n="locations.mapHeading">Meeting Points at Stadshuset</h3>
+            <div class="stylized-map" aria-label="Map showing two meeting points near Stadshuset">
+                <svg viewBox="0 0 620 440" width="100%" preserveAspectRatio="xMidYMid meet">
+                    <!-- Land base (covers most of the area) -->
+                    <rect x="0" y="0" width="620" height="440" fill="#e8e3dc"/>
+                    <!-- Water: south strip (below shore road) and east -->
+                    <path d="M160 380 L620 360 L620 440 L160 440 Z" fill="#b8d4e8"/>
+                    <path d="M470 100 L620 100 L620 360 L470 340 Z" fill="#b8d4e8"/>
+                    <!-- Water waves -->
+                    <path d="M500 400 Q515 395, 530 400 Q545 405, 560 400" stroke="#8bb8d4" stroke-width="1.5" fill="none" opacity="0.6"/>
+                    <path d="M250 420 Q265 415, 280 420 Q295 425, 310 420" stroke="#8bb8d4" stroke-width="1.5" fill="none" opacity="0.5"/>
+                    <path d="M520 180 Q535 175, 550 180 Q565 185, 580 180" stroke="#8bb8d4" stroke-width="1.5" fill="none" opacity="0.5"/>
+                    <!-- Hantverkargatan (red road, horizontal, top) -->
+                    <rect x="0" y="75" width="620" height="12" fill="#d45c5c" rx="1"/>
+                    <text x="310" y="70" font-family="Montserrat, sans-serif" font-size="9" fill="#8b4040" text-anchor="middle" letter-spacing="1.5">HANTVERKARGATAN</text>
+                    <!-- Ragnar Östbergsplan (red road, vertical, left) -->
+                    <rect x="110" y="87" width="11" height="353" fill="#d45c5c" rx="1"/>
+                    <text x="97" y="270" font-family="Montserrat, sans-serif" font-size="7.5" fill="#8b4040" letter-spacing="1" transform="rotate(-90 97 270)">RAGNAR ÖSTBERGSPLAN</text>
+                    <!-- Norr Mälarstrand / shore road (red, south waterfront) -->
+                    <path d="M121 370 L460 355" stroke="#d45c5c" stroke-width="7" fill="none" stroke-linecap="round"/>
+                    <text x="75" y="385" font-family="Montserrat, sans-serif" font-size="7" fill="#8b4040" letter-spacing="1">N. MÄLARSTRAND</text>
+                    <!-- Stadshuset building (white rectangle, sits on land) -->
+                    <rect x="145" y="100" width="300" height="240" fill="white" stroke="#ccc" stroke-width="2" rx="3"/>
+                    <!-- Inner courtyard (Borgargården — open square) -->
+                    <rect x="260" y="125" width="130" height="130" fill="#d9e8d2" stroke="#ccc" stroke-width="1.5" rx="2"/>
+                    <text x="325" y="195" font-family="Montserrat, sans-serif" font-size="8" fill="#7a9a6e" text-anchor="middle">Borgargården</text>
+                    <!-- Blå Hallen label (left side of building) -->
+                    <text x="200" y="195" font-family="Montserrat, sans-serif" font-size="9" fill="#888" text-anchor="middle">Blå Hallen</text>
+                    <!-- Tower (south-east corner, "Tornet") -->
+                    <rect x="435" y="310" width="18" height="30" fill="white" stroke="#ccc" stroke-width="1.5" rx="1"/>
+                    <rect x="438" y="303" width="12" height="10" fill="#eee" stroke="#ccc" stroke-width="1" rx="1"/>
+                    <!-- Building label -->
+                    <text x="280" y="90" font-family="Cormorant Garamond, serif" font-size="13" fill="#555" text-anchor="middle">Stockholms stadshus</text>
+                    <!-- Stadshusparken (green, south of building before waterfront) -->
+                    <rect x="145" y="342" width="220" height="26" fill="#b8d9b0" rx="4" opacity="0.7"/>
+                    <text x="255" y="359" font-family="Montserrat, sans-serif" font-size="7.5" fill="#5a8a50" text-anchor="middle">Stadshusparken</text>
+                    <!-- Meeting Point 1: Ovalen, south-east of building -->
+                    <circle cx="420" cy="330" r="16" fill="#7a8c6e"/>
+                    <text x="420" y="335" font-family="Montserrat, sans-serif" font-size="13" fill="white" text-anchor="middle" font-weight="bold">1</text>
+                    <rect x="445" y="315" width="140" height="34" rx="6" fill="white" opacity="0.95" stroke="#eee" stroke-width="1"/>
+                    <text x="515" y="330" font-family="Montserrat, sans-serif" font-size="9" fill="#2c3e2d" text-anchor="middle" font-weight="500">Stadshuset (Ovalen)</text>
+                    <text x="515" y="343" font-family="Montserrat, sans-serif" font-size="8" fill="#6b6b6b" text-anchor="middle">Family · 12:30</text>
+                    <!-- Meeting Point 2: Boat Departure (south-west, near Gustavus Taxibåtar) -->
+                    <circle cx="155" cy="395" r="16" fill="#c4a882"/>
+                    <text x="155" y="400" font-family="Montserrat, sans-serif" font-size="13" fill="white" text-anchor="middle" font-weight="bold">2</text>
+                    <rect x="85" y="413" width="140" height="34" rx="6" fill="white" opacity="0.95" stroke="#eee" stroke-width="1"/>
+                    <text x="155" y="428" font-family="Montserrat, sans-serif" font-size="9" fill="#2c3e2d" text-anchor="middle" font-weight="500">Boat Departure</text>
+                    <text x="155" y="440" font-family="Montserrat, sans-serif" font-size="8" fill="#6b6b6b" text-anchor="middle">Everyone · 14:00</text>
+                    <!-- Boat icon -->
+                    <path d="M185 397 Q193 390, 201 396" stroke="#8b6f5c" stroke-width="1.2" fill="none"/>
+                    <polygon points="190,385 190,396 198,396" fill="none" stroke="#8b6f5c" stroke-width="1"/>
+                    <!-- Water label -->
+                    <text x="530" y="420" font-family="Cormorant Garamond, serif" font-size="13" fill="#5a9ab5" font-style="italic">Riddarfjärden</text>
+                </svg>
+            </div>
+        </div>
+
+        <!-- Stylized Map — Friends version (1 meeting point) -->
+        <div class="map-container friends-only">
+            <h3 class="map-heading" data-i18n="locations.mapHeadingFriends">Meeting Point</h3>
+            <div class="stylized-map" aria-label="Map showing boat departure point near Stadshuset">
+                <svg viewBox="0 0 620 440" width="100%" preserveAspectRatio="xMidYMid meet">
+                    <!-- Land base -->
+                    <rect x="0" y="0" width="620" height="440" fill="#e8e3dc"/>
+                    <!-- Water: south and east -->
+                    <path d="M160 380 L620 360 L620 440 L160 440 Z" fill="#b8d4e8"/>
+                    <path d="M470 100 L620 100 L620 360 L470 340 Z" fill="#b8d4e8"/>
+                    <!-- Waves -->
+                    <path d="M500 400 Q515 395, 530 400 Q545 405, 560 400" stroke="#8bb8d4" stroke-width="1.5" fill="none" opacity="0.6"/>
+                    <path d="M250 420 Q265 415, 280 420 Q295 425, 310 420" stroke="#8bb8d4" stroke-width="1.5" fill="none" opacity="0.5"/>
+                    <!-- Hantverkargatan -->
+                    <rect x="0" y="75" width="620" height="12" fill="#d45c5c" rx="1"/>
+                    <text x="310" y="70" font-family="Montserrat, sans-serif" font-size="9" fill="#8b4040" text-anchor="middle" letter-spacing="1.5">HANTVERKARGATAN</text>
+                    <!-- Ragnar Östbergsplan -->
+                    <rect x="110" y="87" width="11" height="353" fill="#d45c5c" rx="1"/>
+                    <text x="97" y="270" font-family="Montserrat, sans-serif" font-size="7.5" fill="#8b4040" letter-spacing="1" transform="rotate(-90 97 270)">RAGNAR ÖSTBERGSPLAN</text>
+                    <!-- Shore road -->
+                    <path d="M121 370 L460 355" stroke="#d45c5c" stroke-width="7" fill="none" stroke-linecap="round"/>
+                    <!-- Stadshuset -->
+                    <rect x="145" y="100" width="300" height="240" fill="white" stroke="#ccc" stroke-width="2" rx="3"/>
+                    <!-- Inner courtyard -->
+                    <rect x="260" y="125" width="130" height="130" fill="#d9e8d2" stroke="#ccc" stroke-width="1.5" rx="2"/>
+                    <!-- Tower -->
+                    <rect x="435" y="310" width="18" height="30" fill="white" stroke="#ccc" stroke-width="1.5" rx="1"/>
+                    <rect x="438" y="303" width="12" height="10" fill="#eee" stroke="#ccc" stroke-width="1" rx="1"/>
+                    <!-- Label -->
+                    <text x="280" y="90" font-family="Cormorant Garamond, serif" font-size="13" fill="#555" text-anchor="middle">Stockholms stadshus</text>
+                    <!-- Stadshusparken -->
+                    <rect x="145" y="342" width="220" height="26" fill="#b8d9b0" rx="4" opacity="0.7"/>
+                    <!-- Meeting Point: Boat Departure -->
+                    <circle cx="155" cy="395" r="18" fill="#7a8c6e"/>
+                    <text x="155" y="401" font-family="Montserrat, sans-serif" font-size="14" fill="white" text-anchor="middle" font-weight="bold">⚓</text>
+                    <rect x="75" y="417" width="160" height="38" rx="6" fill="white" opacity="0.95" stroke="#eee" stroke-width="1"/>
+                    <text x="155" y="433" font-family="Montserrat, sans-serif" font-size="10" fill="#2c3e2d" text-anchor="middle" font-weight="500">Boat Departure</text>
+                    <text x="155" y="448" font-family="Montserrat, sans-serif" font-size="8.5" fill="#6b6b6b" text-anchor="middle">Norrmälarstrand 1 · 14:00</text>
+                    <!-- Boat icon -->
+                    <path d="M185 397 Q193 390, 201 396" stroke="#8b6f5c" stroke-width="1.2" fill="none"/>
+                    <polygon points="190,385 190,396 198,396" fill="none" stroke="#8b6f5c" stroke-width="1"/>
+                    <!-- Water label -->
+                    <text x="530" y="420" font-family="Cormorant Garamond, serif" font-size="13" fill="#5a9ab5" font-style="italic">Riddarfjärden</text>
+                </svg>
+            </div>
+        </div>
+
+        <div class="locations-grid">
+            <div class="location-card">
+                <div class="location-icon">⚓</div>
+                <h3 data-i18n="locations.meetingPoint">Meeting Point</h3>
+                <p class="location-name">Norrmälarstrand 1 / Ragnar Östbergsplan</p>
+                <p data-i18n="locations.meetingPointDesc">By the waterfront, central Stockholm</p>
+                <a href="https://maps.google.com/?q=Norrmälarstrand+1+Stockholm" target="_blank" rel="noopener" class="map-link" data-i18n="locations.viewMap">View on Map →</a>
+            </div>
+            <div class="location-card">
+                <div class="location-icon">🍽️</div>
+                <h3 data-i18n="locations.dinnerVenue">Dinner Venue</h3>
+                <p class="location-name">Beirut Bistro</p>
+                <p>Hornsberg Strand 85, Stockholm</p>
+                <a href="https://maps.google.com/?q=Beirut+Bistro+Hornsberg+Strand+85+Stockholm" target="_blank" rel="noopener" class="map-link" data-i18n="locations.viewMap">View on Map →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dress Code Section -->
+    <section class="section dresscode" id="dresscode">
+        <h2 class="section-title" data-i18n="dresscode.title">Dress Code</h2>
+        <div class="ornament" aria-hidden="true"></div>
+        <div class="dresscode-content">
+            <p class="dresscode-main" data-i18n="dresscode.main">Semi-Formal / Cocktail Attire</p>
+            <p class="dresscode-details" data-i18n="dresscode.details">Dress to feel good — elegant but comfortable. We'll be on a boat and celebrating all evening, so keep that in mind!</p>
+            <div class="dresscode-image">
+                <img src="Wedding Attire Example Image_AIGenerated.jpg" alt="Wedding attire inspiration — semi-formal and cocktail outfits for men and women" loading="lazy">
+                <p class="dresscode-ai-note">* Image is AI-generated for inspiration purposes</p>
+            </div>
+            <p class="dresscode-note" data-i18n="dresscode.note">Please avoid white / ivory — that's Katharina's colour for the day 🤍</p>
+        </div>
+    </section>
+
+    <!-- Good to Know Section -->
+    <section class="section good-to-know" id="good-to-know">
+        <h2 class="section-title" data-i18n="info.title">Good to Know</h2>
+        <div class="ornament" aria-hidden="true"></div>
+        <div class="info-card">
+            <p class="info-icon">🌙</p>
+            <p class="info-text" data-i18n="info.alcoholFree">Our celebration is alcohol-free. We are celebrating this day with our faith close to our hearts — and with so much love, good food, and great company, we promise you won't miss it! ✨</p>
+        </div>
+    </section>
+
+    <!-- Travel Section -->
+    <section class="section travel" id="travel">
+        <h2 class="section-title" data-i18n="travel.title">Getting Here</h2>
+        <div class="ornament" aria-hidden="true"></div>
+        <p class="travel-intro" data-i18n="travel.intro">For our loved ones travelling from abroad — here's everything you need to navigate Stockholm.</p>
+
+        <div class="travel-grid">
+            <div class="travel-card">
+                <h3 data-i18n="travel.airportTitle">✈️ From Arlanda Airport</h3>
+                <p data-i18n="travel.airportDesc"><strong>Stockholm Arlanda Airport (ARN)</strong> is the main international airport, approximately 40 minutes from the city centre.</p>
+                <ul>
+                    <li data-i18n="travel.pendeltag"><strong>Pendeltåg (Commuter train)</strong> — ~40 min. Price: ~292 SEK (250 + 42 SEK Arlanda supplement)</li>
+                    <li><strong>Flygbussarna</strong> — <span data-i18n="travel.flygbuss">Airport coach with several stops in the city. ~45 min.</span> <a href="https://www.flygbussarna.se/en" target="_blank" rel="noopener" class="inline-link">Book here →</a></li>
+                    <li data-i18n="travel.arlandaExpress"><strong>Arlanda Express</strong> — Fastest option to city centre, 20 min. ~SEK 299</li>
+                    <li data-i18n="travel.taxi"><strong>Taxi / Uber</strong> — Estimate: 400–600 SEK to city centre</li>
+                </ul>
+            </div>
+
+            <div class="travel-card">
+                <h3 data-i18n="travel.hotelTitle">🏨 Where to Stay</h3>
+                <p data-i18n="travel.hotelDesc">Our dinner venue and our home are both in the Hornsberg / Kungsholmen neighbourhood.</p>
+                <div class="hotel-highlight">
+                    <p><strong data-i18n="travel.hotelName">Recommended Hotel Area:</strong></p>
+                    <p>Evenemangsgatan 48<br>169 56, Solna, Sverige</p>
+                    <a href="https://maps.google.com/?q=Evenemangsgatan+48+169+56+Solna+Sverige" target="_blank" rel="noopener" class="map-link" data-i18n="locations.viewMap">View on Map →</a>
+                </div>
+                <p class="note" data-i18n="travel.hotelNote">We live right next door — happy to help you find the perfect spot. Just ask!</p>
+            </div>
+
+            <div class="travel-card">
+                <h3 data-i18n="travel.transportTitle">🚇 Getting Around</h3>
+                <p data-i18n="travel.transportDesc">Stockholm has excellent public transport (T-bana, buses, trams).</p>
+                <ul>
+                    <li data-i18n="travel.slApp">Download the <strong>SL app</strong> for easy tickets</li>
+                    <li data-i18n="travel.dayPass">A 24h travel pass costs ~SEK 165</li>
+                    <li data-i18n="travel.walkable">The meeting point is walkable from <strong>Rådhuset</strong> or <strong>Fridhemsplan</strong> T-bana</li>
+                </ul>
+            </div>
+
+            <div class="travel-card">
+                <h3 data-i18n="travel.homeTitle">📍 Our Home</h3>
+                <p data-i18n="travel.homeDesc">We live in Hornsberg / Kungsholmen, right next to the hotel area and the dinner venue.</p>
+                <p data-i18n="travel.homeInvite">Our door is always open for wedding guests — come say hello before or after the festivities! 🏡</p>
+                <p class="note" data-i18n="travel.homeNote">Exact address shared upon RSVP confirmation.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Photos Section -->
+    <section class="section photos" id="photos">
+        <h2 class="section-title" data-i18n="photos.title">Share Your Photos</h2>
+        <div class="ornament" aria-hidden="true"></div>
+        <div class="photos-content">
+            <p data-i18n="photos.desc">Help us capture every moment! Scan the QR code or tap the link below to upload your photos to our shared album.</p>
+            <div class="qr-placeholder" id="qr-code">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://drive.google.com/drive/folders/1JEvLdiERibmhsMxuImhxEDZJuPGQ2pJX" alt="QR code to shared photo folder" width="200" height="200" style="border-radius: 8px;">
+                <p class="qr-sub" data-i18n="photos.qrSub">Scan to open the shared album</p>
+            </div>
+            <a href="https://drive.google.com/drive/folders/1JEvLdiERibmhsMxuImhxEDZJuPGQ2pJX" target="_blank" rel="noopener" class="btn-photos" data-i18n="photos.albumLink">Open Shared Album →</a>
+            <p class="photos-note" data-i18n="photos.note">We're using Google Drive — upload your photos and videos directly!</p>
+        </div>
+    </section>
+
+    <!-- RSVP Section -->
+    <section class="section rsvp" id="rsvp">
+        <h2 class="section-title" data-i18n="rsvp.title">RSVP</h2>
+        <div class="ornament" aria-hidden="true"></div>
+        <div class="rsvp-simple">
+            <p class="rsvp-text" data-i18n="rsvp.text">Please let us know if you can make it by <strong>10 July 2026</strong>. Just send us a quick text — and let us know about any allergies!</p>
+            <div class="contact-options">
+                <a href="https://wa.me/46736487133" class="contact-btn whatsapp" target="_blank" rel="noopener">
+                    <span class="contact-icon">💬</span> WhatsApp Katharina
+                </a>
+                <a href="https://wa.me/46721902666" class="contact-btn whatsapp" target="_blank" rel="noopener">
+                    <span class="contact-icon">💬</span> WhatsApp Majed
+                </a>
+                <a href="mailto:katyandmajed@gmail.com" class="contact-btn email-btn">
+                    <span class="contact-icon">✉️</span> katyandmajed@gmail.com
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-pattern" aria-hidden="true"></div>
+        <p class="footer-text" data-i18n="footer.text">With love from Stockholm</p>
+        <p class="footer-flags">🇵🇸 🇷🇴 🇩🇪 🇸🇪</p>
+        <p class="footer-names">Majed & Katharina</p>
+        <p class="footer-date">5 September 2026</p>
+    </footer>
+
+    <script src="i18n.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
